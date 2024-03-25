@@ -1,0 +1,105 @@
+Questão 11:
+#include <stdio.h>
+
+int main() {
+    // Endereço inicial do vetor x
+    int endereco_inicial = 4092;
+
+    // Tamanhos dos tipos de dados
+    int tamanho_char = 1;
+    int tamanho_int = 2;
+    int tamanho_float = 4;
+    int tamanho_double = 8;
+
+    // Calculando os deslocamentos para cada tipo de dado
+    int endereco_char = endereco_inicial + tamanho_char;
+    int endereco_int = endereco_inicial + tamanho_int;
+    int endereco_float = endereco_inicial + tamanho_float;
+    int endereco_double = endereco_inicial + tamanho_double;
+
+    // Imprimindo os resultados na tela
+    printf("Endereço de x_char + 1: %d\n", endereco_char);
+    printf("Endereço de x_int + 1: %d\n", endereco_int);
+    printf("Endereço de x_float + 1: %d\n", endereco_float);
+    printf("Endereço de x_double + 1: %d\n", endereco_double);
+    printf("\n");
+
+    printf("Endereço de x_char + 2: %d\n", endereco_char + tamanho_char);
+    printf("Endereço de x_int + 2: %d\n", endereco_int + tamanho_int);
+    printf("Endereço de x_float + 2: %d\n", endereco_float + tamanho_float);
+    printf("Endereço de x_double + 2: %d\n", endereco_double + tamanho_double);
+    printf("\n");
+
+    printf("Endereço de x_char + 3: %d\n", endereco_char + 2 * tamanho_char);
+    printf("Endereço de x_int + 3: %d\n", endereco_int + 2 * tamanho_int);
+    printf("Endereço de x_float + 3: %d\n", endereco_float + 2 * tamanho_float);
+    printf("Endereço de x_double + 3: %d\n", endereco_double + 2 * tamanho_double);
+    printf("\n");
+
+    return 0;
+}
+
+
+    return 0;
+}
+
+///////////
+Questão 12:
+
+Vamos analisar cada comando e determinar se é válido ou inválido:
+1. aloha[2] = value;: Válido. Isso atribui o valor da variável value ao terceiro elemento do array aloha. Ambos aloha[2] e value são do tipo float.
+2. scanf("%f", &aloha);: Inválido. A função scanf() espera um ponteiro para uma variável float para armazenar o valor digitado pelo usuário. No entanto, &aloha é um ponteiro para o primeiro elemento do array aloha, que é do tipo float *, não um único elemento do tipo float.
+3. aloha = "value";: Inválido. Esta atribuição tenta atribuir uma string à matriz aloha, o que não é permitido. A matriz aloha é uma matriz de floats, não uma string.
+4. printf("%f", aloha);: Inválido. %f é um especificador de formato para float, mas aloha é um array de floats, não um float individual. Você precisa especificar um elemento específico do array (por exemplo, aloha[0], aloha[1], etc.) para imprimir corretamente um valor float usando printf().
+5. coisas[4][4] = aloha[3];: Válido. Isso atribui o valor do quarto elemento do array aloha ao elemento coisas[4][4]. Ambos aloha[3] e coisas[4][4] são do tipo float.
+6. coisas[5] = aloha;: Inválido. Você não pode atribuir um array a outro array desta forma em C. coisas[5] é uma linha de uma matriz bidimensional, enquanto aloha é um array unidimensional de floats.
+7. pf = value;: Inválido. pf é um ponteiro para float, e value é um float. Atribuir diretamente um float a um ponteiro para float é inválido. Você precisa atribuir o endereço de value a pf usando pf = &value;.
+8. pf = aloha;: Válido. Isso atribui o endereço do primeiro elemento do array aloha ao ponteiro pf. Ambos pf e aloha são do tipo float *, então isso é válido.
+/////////
+Questão 13:
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+    // malloc sem free
+    int *ptr1 = (int *)malloc(sizeof(int));
+
+    // loop com malloc sem free
+    for (int i = 0; i < 5; i++) {
+        int *ptr2 = (int *)malloc(sizeof(int));
+    }
+
+    // nullptr
+    int *ptr3 = (int *)malloc(sizeof(int));
+    ptr3 = NULL; // Em C, usamos NULL em vez de nullptr
+    return 0;
+}
+Memory leak é um problema no qual um programa aloca memória dinamicamente, mas não libera a memória que não é mais utilizada gerando um baixo desepenho da máquina.
+/////
+Questão 14:
+Ponteiro para uma função é um recurso que serve para definif, ou chamar, qual função será executada, sem a necessidade de escrever o nome da função, de forma explícita todas as vezes. 
+exemplo:
+#include <stdio.h>
+
+  void troca(int a, int b){
+    int tmp;
+    printf("a = %d, b = %d\n", a, b);
+    tmp = a; a = b; tmp = b;
+    printf("a = %d, b = %d\n", a, b);
+  }
+int main(void){
+  int x = 3, y = 4;
+  printf("x = %d, y = %d\n", x, y);
+  troca(x, y);
+  printf("x = %d, y = %d\n", x, y);
+  return 0;
+}
+////
+Questão 15:
+
+
+
+
+
+
+
