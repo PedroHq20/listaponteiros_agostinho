@@ -150,6 +150,69 @@ O código já se utiliza do qsort, então, irei explicar sua função nesse cód
 4 - "Compare" - Função que serve de comparação, que irá imprimir "1" para valores válidos e "-1" para os inválidos.
 //////
 Questão 17:
+Questão 18:
+Questão 19:
+#include <stdio.h>
+
+// Função para somar vetores e armazenar o resultado em um terceiro vetor
+void soma_vetores(int *vet1, int *vet2, int *resultado, int tamanho) {
+    for (int i = 0; i < tamanho; i++) {
+        resultado[i] = vet1[i] + vet2[i];
+    }
+}
+
+int main() {
+    int tamanho;
+
+    // Solicita o tamanho dos vetores ao usuário
+    printf("Digite o tamanho dos vetores: ");
+    scanf("%d", &tamanho);
+
+    // Declaração dos vetores
+    int vet1[tamanho], vet2[tamanho], resultado[tamanho];
+
+    // Solicita os elementos do primeiro vetor ao usuário
+    printf("Digite os elementos do primeiro vetor:\n");
+    for (int i = 0; i < tamanho; i++) {
+        scanf("%d", &vet1[i]);
+    }
+
+    // Solicita os elementos do segundo vetor ao usuário
+    printf("Digite os elementos do segundo vetor:\n");
+    for (int i = 0; i < tamanho; i++) {
+        scanf("%d", &vet2[i]);
+    }
+
+    // função soma_vetores para realizar a soma e armazenar o resultado
+    soma_vetores(vet1, vet2, resultado, tamanho);
+
+    // vetor resultado
+    printf("Resultado da soma dos vetores:\n");
+    for (int i = 0; i < tamanho; i++) {
+        printf("%d ", resultado[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Questão 20;
 
 
 
