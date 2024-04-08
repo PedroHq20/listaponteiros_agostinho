@@ -1,0 +1,188 @@
+Questão 1:
+p == &i; = 1
+*p - *q; = -2
+**&p; = 3
+3 - *p/(*q) + 7; = 4
+
+
+#include <stdio.h>
+
+int main() {
+  int i=3,j=5;
+  int *p, *q;
+ int r1, r2, r3, r4;
+  p = &i;
+  q = &j;
+
+  r1 = p == &i;
+  r2 = *p - *q;
+   r3 = **&p;
+   r4 = 3 - *p/(*q) + 7;
+  
+  printf("r1: %d\nr2: %d\nr3: %d\n r4: %d", r1, r2, r3, r4);
+    return 0;
+  }
+
+
+--------------------------------
+
+Questão 2:
+0x7ffe01368ec, 0x7ffee01368f0, 7, 5, 15, 9
+(resposta ao executar o programa)
+
+
+
+--------------------------------
+
+Questão 3:
+ p = &i; V
+*q = &j; F
+ p = &*&i; V
+ i = (*&)j; F 
+ i = *&j; V
+ i = *&*&j; V
+ q = *p; F
+ i = (*p)++ + *q; v
+
+
+
+
+-------------------------------
+
+Questão 4:
+
+a: Sim, pois estamos atribuindo um novo valor apontado por "p1", alterando o valor da da variável "valor".
+
+b: O mesmo processo ocorre assim como no exemplo anterior, mas dessa vez com um tipo de variável diferente sendo usado (float).
+
+c: Sim, o programa está mostrando o que está armazenado na primeira posição do array "nome" atribuíndo-o ao ponteiro "p3", e sendo mostrado com uma variável auxiliar.
+
+d: O programa está mostrando o que está armazenado na quinta posição do array "nome" atribuíndo-o ao ponteiro "p3", e sendo mostrado com uma variável auxiliar. 
+
+e: Ao não especificar um local do array para ser mostrado, o programa mostrará a primeira posição automáticaamente (nome[0]).
+
+f: O programa está utilizando a atribuição de p3 = nome para se referir a primeira posição do array "nome", e depois andando 4 posições para direita.
+
+g: O ponteiro "p3" anda uma posição para esquerda, consequentemente aponta para última posição do array "nome". 
+
+h: São atribuídos valores em posições distintas no array "vetor", em seguida é atribuído ao ponteiro p4 o endereço de memória do vetor, e é usado a variável "idade" para mostrar oque foi armazenado no ponteiro p4, que sem posição específica mostra a posição vetor[0] ao ser executado.
+
+i: É atribuído o valor do array "vetor" ao ponteiro p5 por meio da função "p4 + 1", isso significa que o ponteiro p5 ao ser executado vai mostrar a segunda posição d "vetor" (vetor[1]), pois estará mostrando uma posição a direita de "p4".
+
+j: uma nova posição é atribuída ao ponteiro "p4" pela função "p5 + 1", que faz o ponteiro andar uma posição para direita de "p5", mostrando o valor que estáarmazenado na posição de "vetor[2]" no array.
+
+l: o ponteiro p4 que está na primeira posição do array "vetor" (veotor[0], ele anda duas posições para esquerda, consequentemente ao ser executado irá mostrar o valor que está armazenado na segunda posição do array (vetor[1]).
+
+m: É atribuído o valor da segunta posição do array "vetor" ao ponteiro "p5" por meio da função "vetor[2]-1", que faz com que o valor a ser mostrado seja o que está armazenado uma posição a esquerda (vetor[1]).
+
+n: o ponteiro "p5" aponta para o valor armazenado na posição "vetor[1]" do array, aqui ele anda uma posição a direita e aponta para "vetor[1]". 
+
+
+
+--------------------------------
+
+Questão 5:
+
+vai ser mostrada uma tabela com todos os valores das respectivas posições do array "vet" e o seu endereço de memória 
+indo de "vet[0]" á "vet[4]" utilizando o contador "i", fazendo atribuições de formas diferentes, mas que entregam para o usuário
+o mesmo resultado.
+
+
+
+
+
+-------------------------------
+
+Questão 6:
+
+podem ser utilizados umas das duas seguintes formas para essa questão: 
+. *(pulo + 2);
+
+#include <stdio.h>
+
+int main() {
+  int pulo[3] = {7,15,5};
+int *p;
+
+  p = pulo;
+  printf("o valor de *p e: %d\n", *p);
+printf("o valor de pulo[0] e: %d\n", pulo [0]);
+  printf("o valor de pulo[1] e: %d\n", pulo [1]);
+  printf("o valor de pulo[2] e: %d\n", pulo [2]);
+  
+printf("novo valor de *p e: %d\n", *(p + 2));
+
+  
+  return 0;
+  }
+
+. pulo + 2;
+
+#include <stdio.h>
+
+int main() {
+  int pulo[3] = {7,15,5};
+int *p;
+
+  p = pulo;
+  printf("o valor de *p e: %d\n", *p);
+printf("o valor de pulo[0] e: %d\n", pulo [0]);
+  printf("o valor de pulo[1] e: %d\n", pulo [1]);
+  printf("o valor de pulo[2] e: %d\n", pulo [2]);
+
+  p = pulo + 2;
+printf("novo valor de *p e: %d\n", *p);
+
+  
+  return 0;
+  }
+
+
+----------------------------
+
+Questão 7:
+
+Todas expressões são válidas, pois todas elas são formas distintas de apontar para o array em questão. 
+
+
+---------------------------
+
+Questão 8:
+
+. Programa 1: 
+
+#include <stdio.h>
+
+int main() {
+    int vet[] = {4, 9, 13};
+    int i;
+    for(i=0;i<3;i++){
+    printf("%d ", *(vet+i));}
+  }
+
+- o programa mostra um array com 3 posições e uma variável "i" ambas do tipo inteiro, logo abaixo usa uma estrutura "for" para fazer com que a variável "i" contabilize de 0 á 3, o "printf" é responsável por mostrar os valores de cada posição do array quando o programa for executado, apontando para os valores que estão armazenados nas respectivas posições a medida que a variável i contabiliza +1 em looping antes de atingir o valor limite.  
+
+
+. Programa 2: 
+
+#include <stdio.h>
+
+int main() {
+  int vet[] = {4, 9, 13};
+  int i;
+  for(i=0;i<3;i++){
+  printf("%X ",vet+i);
+   }
+  }
+
+- o mesmo procedimento é repetido nesse código, com a única diferença de que dessa vez, esses valores serão mostrados em hexadecimal.
+
+
+----------------------------
+
+Questão 9:
+
+Serão mostrados o valor da variável do tipo inteiro: 
+x = 3 
+e o nome da estrutura char: 
+O nome é"josé"
