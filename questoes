@@ -96,6 +96,60 @@ int main(void){
 }
 ////
 Questão 15:
+#include <stdio.h>
+#include <stdlib.h> 
+
+// Função de comparação
+int compare(const void *p1, const void *p2) {
+    float float_p1 = *((float *)p1);
+    float float_p2 = *((float *)p2);
+    if (float_p1 < float_p2) return -1;
+    if (float_p1 > float_p2) return 1;
+    return 0;
+}
+
+// Função para ordenar os floats
+void ordenar_float(int X) {
+    float *floats = (float *)malloc(X * sizeof(float));
+    if (floats == NULL) {
+        printf("Erro de alocação de memória para floats.\n");
+        return;
+    }
+
+    printf("Digite os %d valores:\n", X);
+    for (int i = 0; i < X; i++) {
+        scanf("%f", &floats[i]);
+    }
+
+    // qsort
+    qsort(floats, X, sizeof(float), compare);
+
+    // Apresentação dos valores em ordem crescente
+    printf("Floats em ordem crescente:\n"); 
+    for (int i = 0; i < X; i++) {
+        printf("%.2f ", floats[i]);
+    }
+    printf("\n");
+
+    free(floats);
+}
+
+int main() {
+    int X;
+    printf("Digite a quantidade de valores: ");
+    scanf("%d", &X);
+    ordenar_float(X);
+    return 0;
+}
+/////
+Questão 16:
+O código já se utiliza do qsort, então, irei explicar sua função nesse código. O qsort foi usado na linha "125" para a ordenação dos floats, explicando cada um: 
+1 - "floats" - Meu ponteiro para um array
+2 - "X" - É o número de elementos do array 
+3 - "sizeof(float)" - indica o tamanho de cada elemento do array em bytes. Um float possui 4 bytes
+4 - "Compare" - Função que serve de comparação, que irá imprimir "1" para valores válidos e "-1" para os inválidos.
+//////
+Questão 17:
 
 
 
