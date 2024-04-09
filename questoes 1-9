@@ -1,8 +1,8 @@
 Questão 1:
-p == &i; = 1
-*p - *q; = -2
-**&p; = 3
-3 - *p/(*q) + 7; = 4
+r1: p == &i; = 1
+r2: *p - *q; = -2
+r3: **&p; = 3
+r4: 3 - *p/(*q) + 7; = 4
 
 
 #include <stdio.h>
@@ -23,14 +23,35 @@ int main() {
     return 0;
   }
 
+r1: o programa compara os valores armazenados no ponteiro "p" e no endereço de "i", caso sejam iguais ele vai mostrar 1 como resposta, isso quer dizer que a afirmação é verdadeira.
+r2: o programa faz uma subtração entre os valores apontados pelos ponteiros "p" e "q" e entrega o resultado como resposta.
+r3: a expressão "**" indica que o programa está apontando para um outro ponteiro, nesse caso, significa que o programa está apontando para o ponteiro com o endereço de memória armazenado em "p".  
+r4: a expressão indica uma operação feita ustilizando os valores armazenados nos ponteiros "p" e "q" como variáveis
 
 --------------------------------
 
 Questão 2:
-0x7ffe01368ec, 0x7ffee01368f0, 7, 5, 15, 9
-(resposta ao executar o programa)
+#include <stdio.h>
+
+short int main() {
+  int i=5, *p;
+  p = &i;
+  printf("%p %p %d %d %d %d\n", p, p+1, p+2, *&p, 3*p, *&p+4);
+
+    return 0;
+  }
 
 
+ao compilar o programa, esses foram os resultados obtidos: 
+
+. 0x7ffcb3b5d69c 
+. 0x7ffcb3b5d6a0 
+. 7 
+. 5 
+. 15
+. 9
+
+utilizando o "short int" como tipo de variável, há uma redução no tamanho de int (4bytes) pela metade nos devolvendo 2bytes de tamanho.
 
 --------------------------------
 
