@@ -42,10 +42,6 @@ int main() {
     return 0;
 }
 
-
-    return 0;
-}
-
 ///////////
 Questão 12:
 
@@ -74,7 +70,7 @@ int main(void) {
 
     // nullptr
     int *ptr3 = (int *)malloc(sizeof(int));
-    ptr3 = NULL; // Em C, usamos NULL em vez de nullptr
+    ptr3 = NULL; 
     return 0;
 }
 Memory leak é um problema no qual um programa aloca memória dinamicamente, mas não libera a memória que não é mais utilizada gerando um baixo desepenho da máquina.
@@ -153,7 +149,11 @@ O código já se utiliza do qsort, então, irei explicar sua função nesse cód
 4 - "Compare" - Função que serve de comparação, que irá imprimir "1" para valores válidos e "-1" para os inválidos.
 //////
 Questão 17:
+Não soubemos fazer
+//////
 Questão 18:
+Não swoubemos fazer
+//////
 Questão 19:
 #include <stdio.h>
 
@@ -198,24 +198,74 @@ int main() {
 
     return 0;
 }
+/////
+Questão 20:
+Não Soubemos fazer
+//////
+Questão 21:
+A - Não há vazamento de memória, pois a memória alocada é devidamente liberada, com o "malloc junto o free"
+B - Não há vazamento de memória. Pois a função "F" declara um ponteiro para float de nome "a", Que não está sendo alocado nenhuma memória para ele.
+C - Não há vazamento de memória, pois a memória alocada é devidamente liberada, com o "malloc junto o free"
+D - Não há vazamento de memória, pois o ponteiro "num" recebe valor f(10), recebendo um valor alocado e depois ele é liberado com "free(num)".
+E - Há vazamento, Os ponteiros "m" e "novo" são alocados dinamicamente. Em seguida, o ponteiro "m" é liberado, mas depois é ponteiro m é reatribuído para apontar para o mesmo bloco de memória apontado por novo. 
+Então a memória é novamente liberada usando free(m). Nesse ponto, o bloco de memória alocado para novo é perdido, pois m e novo agora apontam para o mesmo bloco de memória.
+//////
+Questão 22:
+#include <stdio.h>
+int main(){
+  int a, b;
+  int x, y, z;
+  scanf("%d %d", &a, &b);
+  x = a; y = b; z = a + b;
+  while (a) {
+  x = x | b;
+  y = y ^ a;
+  z = z & (a+b);
+  a = a >> 1;
+  b = b << 1;
+  }
+  printf ("%d %d %d\n", x, y, z);
+  return 0;
+}
+Resultado = Ao digitar os vaçores 10 e 1, o código imprime os valores 15, 13 e 0.
+//////
+Questão 23: 
+#include <stdio.h>
+#define TAM 10
+
+int funcao1(int vetor[], int v){
+  int i;
+  for (i = 0; i < TAM; i++){
+    if (vetor[i] == v)
+      return i;
+  }
+  return -1;
+}
+
+int funcao2(int vetor[], int v, int i, int f){
+  int m = (i + f) / 2;
+  if (v == vetor[m])
+    return m;
+  if (i >= f)
+    return -1;
+  if (v > vetor[m])
+    return funcao2(vetor, v, m + 1, f);
+  else
+    return funcao2(vetor, v, i, m - 1);
+}
+
+int main(){
+  int vetor[TAM] = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19};
+  printf("%d - %d", funcao1(vetor, 15), funcao2(vetor, 15, 0, TAM - 1));
+  return 0;
+}
+Resposta: Ao corrigir o código, vamos para as sentenças:
+I. O resultado da impressão na linha 24 é: 7 - 7. --> Verdadeiro, ao executar o código esse é o resultado que irá sair.
+II. A função funcao1, no pior caso, é uma estratégia mais rápida do que a funcao2. --> Verdadeiro, uma vez que passa por todos os elemebntos do vetor.
+III. A função funcao2 implementa uma estratégia iterativa na concepção do algoritmo. --> Falso, pois ela não se utiliza de loops. 
+Resultado: Apenas I e II estão corretas. 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Questão 20;
 
 
 
